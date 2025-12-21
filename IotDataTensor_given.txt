@@ -1,0 +1,18 @@
+class IoTDataTensor : public RankOneTensorType<string>{ 
+  public: 
+    IoTDataTensor (){ 
+      iot_category.resize(0); 
+      iot_data.resize(0); 
+    } 
+    //get the value for at the entry of row and col 
+    double getValue(int row, int col); 
+    
+    //get the attribute or column title at the index col 
+    string getCategory(int col); 
+
+    void loadData() override; 
+  
+  private: 
+    std::vector<string> iot_category;  
+    std::vector<RankOneTensorType<std::string>> iot_data; 
+}
